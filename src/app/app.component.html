@@ -1,13 +1,27 @@
-<h1>
-  {{title}}
-</h1>
-<h2>
-  {{hero.name}} details!
-</h2>
-<div>
-  <label>id: </label> {{hero.id}}
-</div>
-<div>
-  <label>name: </label>
-  <input type="text" [(ngModel)]="hero.name" placeholder="name">
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <a href="/" class="navbar-brand">{{title}}</a>
+  </div>
+</nav>
+<h2>My Heroes</h2>
+<ul class="list-group heroes-list">
+  <li *ngFor="let hero of heroes"
+      class="list-group-item"
+      (click)="onSelect(hero)"
+      [class.active]="hero === selectedHero">
+    <span class="label label-info">{{ hero.id }}</span> &nbsp; {{ hero.name }}
+  </li>
+</ul>
+
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name}} details!
+  </h2>
+  <div>
+    <label>id: </label> {{selectedHero.id}}
+  </div>
+  <div>
+    <label>name: </label>
+    <input type="text" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
 </div>
