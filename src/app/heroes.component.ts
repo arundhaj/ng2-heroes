@@ -15,7 +15,8 @@ import { HeroService } from './hero.service';
 export class HeroesComponent implements OnInit {
   selectedHero: Hero;
   heroes: Hero[];
-
+  partRepo: string;
+  
   constructor(private heroService: HeroService, private router: Router) {
   }
 
@@ -24,6 +25,7 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
+    this.heroService.getParts().then(partRepo => this.partRepo = partRepo);
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 
