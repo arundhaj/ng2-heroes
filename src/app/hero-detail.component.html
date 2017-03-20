@@ -3,10 +3,12 @@
     {{hero.name}} details!
   </h2>
   <div>
-    <label>id: </label> {{hero.id}}
+    <label>Id: </label>
+    <input type="text" [(ngModel)]="hero.id" placeholder="name" class="form-control" readonly>
   </div>
-  <div>
-    <label>name: </label>
-    <input type="text" [(ngModel)]="hero.name" placeholder="name">
+  <div class="form-group">
+    <label>Name: </label>
+    <input type="text" [(ngModel)]="hero.name" placeholder="name" class="form-control">
   </div>
+  <button (click)="goBack()" class="btn btn-default">Back</button>
 </div>
